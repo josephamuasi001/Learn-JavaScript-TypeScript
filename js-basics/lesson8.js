@@ -96,10 +96,12 @@ list.pop();
 console.log(list);
 
 function addItem(list, item) {
-    if(!list) {
-        list.push(item);
-    } 
-    return list;
+  if (list.includes(item)) {
+    return false;          // duplicate, don't add
+  }
+  list.push(item);
+  return true;             // added
 }
 
-console.log(addItem(list, "milk"));
+console.log(addItem(list, "milk"));   // true
+console.log(addItem(list, "rice"));   // false
